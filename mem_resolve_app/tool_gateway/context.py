@@ -1,4 +1,4 @@
-from contextvars import ContextVar
+from contextvars import ContextVar, Token
 from dataclasses import dataclass, field
 from uuid import uuid4
 
@@ -52,9 +52,16 @@ def create_local_context(
 
 def set_tool_context(
     context: ToolRequestContext,
-) -> None:
+) -> Token[ToolRequestContext | None]:
     """Set the authenticated context for the current request."""
-    _current_context.set(context)
+    return _current_context.set(context)
+
+
+def reset_tool_context(
+    token: Token[ToolRequestContext | None],
+) -> None:
+    """Restore the context that existed before the request."""
+    _current_context.reset(token)
 
 
 def clear_tool_context() -> None:
@@ -65,12 +72,7 @@ def clear_tool_context() -> None:
 def get_tool_context(
     agent_name: str,
 ) -> ToolRequestContext:
-    """Return the current context or create a local fallback.
-
-    When an authenticated request context exists, its user identity,
-    roles, and correlation ID are retained while the active specialist
-    agent name is applied.
-    """
+    """Return the request context for a specialist agent."""
     existing_context = _current_context.get()
 
     if existing_context is not None:

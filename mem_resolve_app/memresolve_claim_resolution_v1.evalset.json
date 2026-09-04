@@ -1,0 +1,170 @@
+{
+  "eval_set_id": "memresolve_claim_resolution_v1",
+  "name": "memresolve_claim_resolution_v1",
+  "eval_cases": [
+    {
+      "eval_id": "claim_20045_read_only_investigation",
+      "conversation": [
+        {
+          "invocation_id": "e-c44472a1-65a0-4f90-ba6f-240f2e66f7e9",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Investigate claim CLM-20045, explain the denial, and recommend the next step. Do not create an approval request or execute any action."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is the investigation summary for Claim CLM-20045:\n\n### Claim Evidence\n*   **Claim ID:** CLM-20045\n*   **Member ID:** MBR-1001\n*   **Provider ID:** PRV-501\n*   **Service Date:** 2026-07-15\n*   **Procedure Code:** 72148\n*   **Diagnosis Code:** M54.50\n*   **Billed Amount:** $1400.00\n*   **Allowed Amount:** $0.00\n*   **Claim Status:** DENIED\n*   **Denial Code:** AUTH_CODE_MISMATCH\n*   **Denial Reason:** The claim was denied because the procedure code that was billed does not match the procedure code that was approved on the authorization.\n*   **Authorization ID:** AUTH-9001\n\n### Eligibility Evidence\n*   **Member ID:** MBR-1001\n*   **Service Date:** 2026-07-15\n*   **Eligibility Status:** ACTIVE\n*   **Covered on Service Date:** Yes, the member was covered on 2026-07-15.\n\n### Authorization Evidence\n*   **Authorization ID:** AUTH-9001\n*   **Member ID:** MBR-1001\n*   **Provider ID:** PRV-501\n*   **Approved Procedure Code:** 72141\n*   **Diagnosis Code:** M54.50\n*   **Approved-from Date:** 2026-07-01\n*   **Approved-through Date:** 2026-07-31\n*   **Approved Units:** 1\n*   **Authorization Status:** APPROVED\n\n### Policy Evidence\n*   **Policy ID:** claim-denial-policy-md-2-procedure-code-and-authorization-matching\n*   **Source Document:** claim_denial_policy.md\n*   **Relevant Policy Rule:** A claim requiring prior authorization must contain a procedure code that matches the procedure code approved on the authorization. If the billed procedure code does not match the authorized procedure code, the claim may be denied with denial code AUTH_CODE_MISMATCH.\n*   **Resolution Guidance:** Before correcting or resubmitting the claim, verify the billed procedure code, the authorized procedure code, member identifier, provider identifier, diagnosis code, date of service, and the authorization effective date range.\n\n### Root Cause\nThe claim was denied because the billed procedure code (72148) does not match the approved procedure code (72141) on the prior authorization (AUTH-9001). The member was eligible, and the service date was within the authorization's validity period.\n\n### Recommended Next Step\nVerify the accuracy of the billed procedure code (72148) against the procedure actually performed and the approved procedure code (72141) on authorization AUTH-9001. If the billed code is incorrect, it may need to be corrected and the claim resubmitted. If the performed procedure genuinely requires a different code than authorized, further investigation into the authorization process or a request for a code mismatch review may be necessary.\n\n### Approval Requirement\nAny action to correct the claim's procedure code to match the authorization or to request a review of the code mismatch would likely require an approval. The policy explicitly states that the billed procedure code must match the procedure code approved on the authorization.",
+                "thought_signature": "Cq0eAY89a1942ufF6d3rf00HIRVCZIy6qQOgJzZ9hzHjCGaNCsqQey6sRqJzTlcB3zvZufk3nUekB0kZ1iKhIxHasirAyr69I8iHanPp1m-j8PTdr76DuKAkDPhOf4neRFIq1Z71x9Lzt0rdXhTJa4yTBxvRjfceqvhgmVd0MgLtPLm5lToMEDflDubm-CqaeKe8v_5MyIh-gyK-OpB5UVJRenkjHq5LhORJj_sUi3ar08atwRyuJ-ldnPviOA-mcl9-scJzF-UEFzgVqAvg_VuoVqcWqxoO2WIvNZU9-jaCd6HXzL0oJuPlcFwFpQ8rbHZB3r_fDfT8eC9OPe7KoMXPp7vB0bdxtBzTFSbudCKq8W90qPgRc20E3_aDzGSxYlh9Qwxc2UQjehkR03TPkwIpgwRgj1jOPFdGZWRlcPrfkiCsbG_qz2vqbIkIb-_hjeywo9yNub_5WWWqP0qOq9LXBvwWR6cCVQiW7PIZJ-tPxRfXLvA0c5uFRyqO_aGzjYgmCdUXxfRMjZQAZPGYmYhZXMSP5hGUQXfvxJp8GBMG4jzpGFzaQd8RZMoRphMbz7vbb6TKnN2xit2AV4SUxvvxqz35G0RZTJWOOKdesqdgnVa6w5HPnjjwWqBU-NLTcXZ45m0nOaeGsAwwKZSZgwoW5z3uhornnYJcnuk4zklKDIU0ZpZc8g_Wn3vMbDTSOitRTS4ZHQ0dQUU1BcHTEpIX2qR0zYqhQ8TRiVSaX-bqqLxKLEkR01bjKG71vn2wjQ5UlESinlH7Oh4HKZMuHvAcfMnlMujgr63X7DJHRxaaKnIoo4jloYo-qVsolDYm9ZWvH4l3Uqs3_Bz5wIe-Q4R0bskNXaDsFv02ULozysbm0UeVH6Y0vb9gcAXafa3mpzmgrxrlHZd7t9YqIvq7Z7-dEDnjSk_NWp7CHmKjJp5EXTsjl-WtQms6Y_BrX9uEF_9G29vDygW4mF4jvCnM_wGJNnVZqqoGcUkRrzVlBq5mcMYg45e-_xwphQ0RDP8e0hPh_rFvkrdNqq9zlu5d_X6xArbcZBAcBcWIWFIIdAdEAM-LtgQg7LlHu7saVk9YmnualU2lo0jumLbOs-UGEK8QTNj486sJGel3aGmex_0V7JD38IoOQ_V_BYbw9sEtIg4_wo6ff1naesCaDSF61GijZO9ajZQUcqkQqndOHet2Rc5ER-3Qb5jublFVDxCm--F919ZcbI01nxn2eolEtJfjgqn6HvdVXBXhg-MjOHTNce1L89xCfflYy3MNwnm039ZhwbHkmTPyn_Imm6vPNk4ddXbcl-XGn4IqMdRFL6D_GJ_h96h9Jg87DvZCoFcLgMjtfCW4vfWcwlWSgveHOg_NAZSxfHPkDpaURYgJhT2t7wieinkFvWDXXjMnpvQmS8YM97p2EhbM03f8om0hLHbeQQrtQTkzekYTmFW-xL43cCq6pVfTNTb0XzsgeO4BxwcSAbr14bzYEjRMEfCnEmOpF_aOI1lsQEPBdQQjLrjtrhcu6wB3xKghe3Hd2L0tJGrsgJV6H3lhnSFez4_xeKrvk-pyy3UyrYwTfBUicmBBA3aePn9muEB0qac2jADrttE_D_Bbt5xMlTlXwujho4ThjHECnUNHvptn6bqb6LFOypqy_zpTJWQdLE6KpLZRsxp2WmKVoO5vzOgl3KXa7ewX8CgJKt2kcC5zD-Wp9x_iZoWbbtQQbeCb5pBvSbOtlFGjeMcj8VVz6W6D_LOIKSdFOkKw98rtAtbQZlKUhKGfJWn_WymC6CnACsiz56v3GheyeLwZVXT2ie8YdPzflLtMqqZLsowxLnbtptAej5KCsNKAJFRYNHvGHqseC5D9NKxOF7tTqAy7QrNhqjieD2RaJS1YUVRV7RenAZbs7B0wVA9giPP4xdfL_12Io-_PANDlJjptXbUM5Ayic2XGoYGJrODYNFQf64c5m75NIfajAk0431xaOT0YazwELhqiZXkTUqTxjOSdcNKN0M-_xfkk2174HrTakF5nXdo9ulDZc6XbKLqrGNo-jUrFxA2S9jkNjWYZtDcB1pPvB3sHo8Drsm7XuQWFpNU9EOLx94-1sFwGqqtNRiaSrBP1lIcibufwoqKhLv71KU34rXjWAI2mIs5lKbyacDalnrRFa8hP4imu4_-fq1FpCbRscyjb6heLG3G-07T9eGoTEb7TZ6K9tosCnk7QCq17jT-JpcLwF2SBt0UigppaWjYB9TLukwvSfGESiGKXRh_ty2ZCJfRDxJloRnUJXbXMA98mpWn8BCb3NnjcF_ku_-6K6oTb29bCM2KqB1SnI5YSBqOkMr-rVGmA3J48oB4DUSRUf5WHPNm_usLYesoeKWxMpVMDicLtX_AUqvPQiK9F6XC3Ydtm2O3aGnrxGU2vpxfjVfYK3oujOP5CUeu1wZMbxivFJcT897OBmHxv89LtVLoudBR-2evvE8LRREyGPPtI4p1mKt2DAzXCs7VFxe5APIZKoqsTh9nkX0T-4T-JkDjX0D4724ppoeB9RmNyM5BI_IAFbo91NUEAitkTj4w2SQS7j0MduVPqyMdpkUSI_7TgvXPfeEdAS8lskOK2sy2epmLtYLY3bLjH5E0wlFf7bOzDC6bRk6O934T3qpxeVACigwBSN7xFMN_Q3sJtfHrH7TrpQNnI9PyhK-_vNlUJEM1Lhp0eUwGLDQBzzQH5uTtwoiYZ_EW9ZXcvXmr5L6438k3gqtY5TYLRSHlqgWDKegsoTqRmmoJQm7c3ssLotLPNWMk6-qFW3sJVuzxbrhMGjnqJaPb70nyCbDDJ6-kqdSWH7y1oKRHLTP0Knc7WDcipTgWO_vG4Vbpc585glkedLaQZpywPm9jEOE3nmBprLXmasMiin7Ue7sRCgUKs9EVW234E1GkNuaYJBbwaPeb8QXor4xeQFyIyzfSbT-loUdb-IXk8hZnSNAYGy3mvBA_rPCqvS23s12HA9G3pn__1gKEldw7g-h4A9trtZDUAX6gPcYRFL2Kr-vwIX8wbwlurMS2z0HNYME25MskBcROFNPB23MdyxRk7hGi15Em3Bzhuu9bBzP8T9QzB4pAWW9MoNCkCIjJKPycklpqRxoU69LK-aVVnCeBQ5IrcuO79KARgmhx3qIJco1ySy3aEN-rTl42f-oi5ytGdkG57pdmdDqK6X7eYidrzu5u9LMrTHP2zZdbEUXBtQnRT1NZ0cdcehxrftIl-hz_Ua3aXeqnuUQS6172czBEUjqxjCTLiP6uaeMNpD0G4fYTvFN4YVfx5uHFi_8AzFIhuImg3L5iiKplIv-a68ub_SYH54LDJ647T9OcT3-Sl56TY5NyheVF8B3DWDy3RWcVjkl5WudOcGJUAcUBn5HJD8ORjRMzS7VEQ1-HLTqUeVyb6S1im6R6Rl-y8RT59wT7cW-GZY5Zz9JHS32sSx5NrykJOojHjzKWLZ1xDVLTPGbwIrS_D4HYSu90jKDqoo7gpJXKHa_5NgmoD2D_pY3fhYZp7NShLwk0-0oj8PBiUQuBRlI_ivd_hVpHRpzM6EcddR8fyaKJO2h67bp6BSEa8GwKJbtWfD-WpjGSe1ucXVuwCNg2JWUQLpKUWIxePnZgzV_6EqeCQ-beX0v36522MXgXwD2OLtZXkm90iDLL2iumak-HmSSP7WPp-Pt_9M2LApISUjA2KK9djQ7YAsYSR8OylYaALRGrY8phMus3-Wwht1_Z741nvbV4rQsMhcPCRVWG0wbLipclRhc9HpwhR6F3p8AT6lA8GYZ99tGyFgJw6DRhAKqZXfPE-wT5ioXOjLWS3cM-RhIq_VxXjxiMl6qAx_KaJC4KkfVu1wiP4_C-BMXOd1xFFDxt1H0gLih3V7LhKUGw2YklA2HQBVGGOmzOpHtxzWAZISwuspEURygjQ59i8IzDBTDvsfvJmME7tL71meSaNend_f_QIH_sijduLQbP0CH38GQL0ZOgePwFkjylzubKEbBd7U3fJE-x1IR8xS82EZLgW0oM2iYyWFMxwxfS2Ay_yEz1H_CCqSE28KyaPgQSU2ZeV6PW1HUFa_YgahglAggz8-RiSFCdf_xkQtREL3WhE_dUOyMe9owFVpLmMUXddRfNzraq5lzwG0FDZu4kfaiallbH8JLt8Ki7iAEGFgeOplON5_IIprPRHWT2aQ-u6Q89_UXThFrttTSwdbQqoWGR2kelI-78utPgrRspitoHouo1LYG1SMQHmMTGT_Pp9DN-LfU93z9sdwcCP1M4phNt45wff4mii4eREWX0l5u2PL29DrnFnL6kLO36OvXsRkKrWcnurVZrgRNy7hGcSUGsMKUEwr-UH9xVvNH2QeKyCiSz5drcsVzTSiezsqD0EWYkGc4A7btV7oT4tY9QQprPVq1YJTo8VozitEuShnC__AUuartu0sKFi1MxIkmRJuFc_H9qS-Vs8GdFUFBL6_ALLFW3tdO-aqhc79CfLaKxjwlkswgzVqOV0bfai3Q7ge5Qh9c8OchUQHWARnPnQqPpksBOYTB0OBruhmvOycgdDODik0lYC8KO3ZAn1eRQ-pUC3diov9dkZAbq4sowWsH4owwyk1YWn44sp3T0HJaG-KZWpHn4i4s-6uDyepBIBi2r1IfJYbF-ZQFZxpUyvR0HcwUPF-ccMbafTVrpljXOACyDhb4uSoUGwZIRRgQo3rEYFBSBGV1AR0ARG2V0V81Jg233C5fUlV9Oc734tpcF3jImfJXVOU6gGDe6IQKI8SJt4UffnAM6XOcJBLvcxM-GdMUtutreJfR3QSYJukDktkcW042AAMmbOqjMAo2n3UGf0tnPepr7JsC1QwPhu6aPISXjjTv3UZm4kgbGEUAIiCR-jcXq0-n8Aa9mBu-ZwFcuIo2WvyTvLkjJ2lYnHxL8sQs-b04hbYmy6SjbTmu4SfzEp5ME1zNJYki_Hn6Nvg7xcP8LzK1vYnZvNSuSXiXY6_JsrWQZc2_MJlkT6yMqBwa_xQmfb4lO9Xo4rD-9TvHcsR3G2r7kouy61Fo7_w5CAothpymWsf1NDyjmeUDGouUNxCXBRonEIO4UkX1D-qDW9YRo3IDqz76Z4TRW2T8jHj5Ek0J7CwaV59AkH1ozOJYJEkBWXp7CsXTLVyjfyrQJN7S--69_pjnvLS6LAKpyn6jKMY4pYdnZHsrka--Lj"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "resolution_supervisor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-de78543f-24e0-4596-b8ac-69f9df78d369",
+                        "args": {
+                          "request": "CLM-20045"
+                        },
+                        "name": "claim_agent"
+                      },
+                      "thought_signature": "Cu0CAY89a18TWDKZmdz0TeHJn6JKbbP7H9SbHkGrZ5YHdXQWXecrgyE3YwGcUVMz4YpPJnm0miKHZ7PFgLCqrFHIhN-BCCPVYBFd-GGMquPL2lSYplXrCY4lWyjt0gQYBuJCWmtJpMHgkDbsuwaZIY7MPKcCjGGz3neehZS6uVKB17n4vyePdIVf61IrbQScDn7dklp4ES2Rv_81XkskgCuCy8vAmoPl-Clq_834URfXu92O1LB6Sp9Q0GQ3XFV_3co_Hqnd57hvciuS4HFaYhslRsRSqlP35iWtgSKBAapqrtXd7w-w64FHRST8_k8k1La-UNke5njY1ldALS27AXQlabkO9LW6WQXbz7NyyHoHeqa2ud2XhyGcnPlZcFkq1r_wGIoMVK5aNKLVHoeS72ah6IWWIMhpc_1nTDzdWuRsgbTqxcKXcf_vPNTWy0MOP3cffZfOoG0H_mmhPoEjd3UYOLZxWdNUCh_pKQW0x2s="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "resolution_supervisor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-de78543f-24e0-4596-b8ac-69f9df78d369",
+                        "name": "claim_agent",
+                        "response": {
+                          "result": "Here is the information for claim CLM-20045:\n\nClaim ID: CLM-20045\nMember ID: MBR-1001\nProvider ID: PRV-501\nService date: 2026-07-15\nProcedure code: 72148\nDiagnosis code: M54.50\nBilled amount: $1400.00\nAllowed amount: $0.00\nClaim status: DENIED\n\nDenial code: AUTH_CODE_MISMATCH\nDenial reason: The claim was denied because the procedure code that was billed does not match the procedure code that was approved on the authorization.\nAuthorization ID: AUTH-9001"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "resolution_supervisor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-4b8c2030-9ddf-4e23-9187-17029cb90b5a",
+                        "args": {
+                          "request": "Member ID: MBR-1001, Service date: 2026-07-15"
+                        },
+                        "name": "eligibility_agent"
+                      },
+                      "thought_signature": "CuwNAY89a1_hYW2A4FRmhZ7yqIBbEFhsxXuQc-_60Uw8e5-AzUdhr0Rc_0EY2EU7xgwbmo1MiiRyhxCIk6QxXMboxLty0L8GHoNxc55BabJmFpWBRyohjangV9ZYOvDNZiGUaKAqQnb6SvGy3EqifQP-EVfcDnB5chMzvnDc6hmVY236NU-waMNmYKEqq8swZIio2WccJRtdzPggYCHadlXrZPOloT_uc9c6nZOUyuQIa9AHxiYeITf0sVIWePWRp2REDUTsp98kLRPxvS8h_C0JJPy4bQ7LmX8WojRuvD8RHrB3MnhqUT1AiwKzylGgInGeAhEea50r68sT6cb0uTwjheIHlGmRgi_G7Sq6XCbiVMF9AZkxT2MBvKGrFhtCwjp1Y9ZlphaULiYP2UhL26_kk6r5dzYaClNQ2H4X3xc7ETjk5ZEH7ZEU2FP9fvKWwVyOV82asx1Zb8oLSwriJOxiKTHEZRWblnTAqLCNtTGkMlzh_TvWv8iT3WYAHFUpT-IK4-i3iRdL9yuiEJ5pQhzKrEHP6-iINzRdPLoMoH1k3T8RgIRjd0iYDt78FIk4hNk4pzoDsYZfMM_CLDVEIEgssx3pxvAkp7kBN1hGQ9vinFyOjI63fUi06m_YSecV5dlpzcOoKU_Mil9W5RdGBfO2p1KZ9AtAzHgBZ0nIRJGnHFiW3GTuVL9EfgI_-IUKnkDkmjR5GQT16WXPI8NWbM0_LtK2cG-vgmK3maVQoFH_5CPRItObFo95eZBZJ0wVWvWrZdBex4WUPPHMjG1V6GKNZG0fWNDh2jPRdWfBlVFqFtAOjEvdwUx638Z7kZwHJp-a01Y06XMJmg65EedK0EAGFFYt_zGoqQUcAXaxeNb-_oAruAtfPSDjQAvW-fI7AspYWv3yvfhlXOUYfYKbi7E0ZZlSGrE6aWd12oWNuENCJERDctTOsI7J5i0S7GMu475_-rZjXqUkB8rnLueNzhLZkRF7JnA_73rL_8qLrY1HUEIKxUNRoP2UYPl-4y0Pq4EKJvKpMmyZ6j6iMOhEka7E2iFl2P6Lg26Zb15eTFoKfev_co70kBK6T_3TzcpZhSJNGts0DkQWcbmfRFX0jv7S0L9HUMEx2qC2xpw40Thi34T_VikSCFAIDke26g5GP8-BOSIulBb3PpJ9HOwGAxef1DSaq5PRgnDZkkMgu1lGIlvns0Qjq9T38uylWyux0i6qNRrywWWyrxTDWLGdSMbH6fE7nglD7UOH27pUFzM27imzrUGYhNLY1n5VRdL4Yqow5mMDgnxWYLo4c9pvqJMa5cDU2CiwiRRI9Idyre_Y6QuOJ7jR4iVwOHW9fnsY5HqVNjuPqpu0yGmb3fyljYax0MFmEylJkjRBYagtQ2X835bkdYg_tDT-i3WFbhQnVuScuqxKZ8Sq4ku_9hzLEv1cBWkyv_Fgj3HLNlkU7Jyxl0gkTd3fu5wYSPD2IGuR6HifuaMNTDtPJgfwPO16qdSz09Jd3BGdUUGAWG0Fv9YzPXphoB66c6YvwClk2uiRt8yJfR20QGRK5UPqk9B6XBpFRZR581RNLa886ExXImpV6Jxbo2DNEm9ivP5d9eqqxzFyaOYRRKi9fu5YpT4TDOlCO3sOmvqYFayQAeRjSc7u5NaP7TzQiyxe7nh17v_MWCvVH3iyr4EvzosS0h3se1ZoPz1ZF0-Ye3mdaEEiZrtFgPBLgF3xP0qcj1zanX-4P_9dvj4ZEtP879trwPihmrs0OCfDEWdewttxy2pnQ_cUR2DCt-zvBDorvq0vKscw9PyTUhRWSeoy_4xk4W34jFGsOV3ROPrtdmWSPGJORnX4OqEswBSGMdhWgbzhtyhr634j7qz7nsXErXdKCFdmuHJ7d6PnejPzvlphEYkXn7OL9gEczql4-TPQU5JGyU3UWDVTZFGlcmca54WtvfObe0VmWO_9J5GaaXJsu7GFwpNlsKnEOeWZVsbes4Pw6XvIpYUlHORoMU4-vjLSOZx26dlaSeQns4YGF6RdXkITo5w36w8pdn-SHAdWQ3ebX4vSnfof_nOp6tvWt1bjc2FKO0XKMdtw1OH2ZvOxwgc_quT2pvDhrdXLHFv-2cDm-QcniV-8xG5-tFba_HRepvhCyBK1eF7ZgttUDf7GuJhykInsWVBSes2dChAtEPhwDT2ao7oA66ris6tmU6s6ehXroZ3gUTorQ3qSeu_ioyKPM7dNSML14qkNFwXZQP2HZiEe150a5oZDKF7geZBZ_j-64Yoc2cP--fggmN22r6cS3xIYg818x2m4-ULicCvweYR_WR1jXoqGhFEIYxcPvbPsbAexozNfnX5jpndwcZG4Gx9-dVb1Mpd6sVMY5bFOdB8="
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-b5e8f688-d91c-402b-a31d-0be528339dcb",
+                        "args": {
+                          "request": "AUTH-9001"
+                        },
+                        "name": "authorization_agent"
+                      }
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-8dd17a3c-befa-4d6f-9c67-1eac77e3dbbe",
+                        "args": {
+                          "request": "Denial code: AUTH_CODE_MISMATCH, Denial reason: The claim was denied because the procedure code that was billed does not match the procedure code that was approved on the authorization, Procedure-code issue: True, Authorization issue: True"
+                        },
+                        "name": "policy_agent"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "resolution_supervisor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-4b8c2030-9ddf-4e23-9187-17029cb90b5a",
+                        "name": "eligibility_agent",
+                        "response": {
+                          "result": "Here is the eligibility information for Member ID: MBR-1001 on Service Date: 2026-07-15:\n\n*   **Member ID:** MBR-1001\n*   **Service Date:** 2026-07-15\n*   **Plan Name:** Choice Plus Gold\n*   **Plan Type:** PPO\n*   **Group Number:** GRP-100\n*   **Effective Date:** 2026-01-01\n*   **Termination Date:** None\n*   **Eligibility Status:** ACTIVE\n*   **Covered on Service Date:** Yes, the member was covered on 2026-07-15."
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "adk-b5e8f688-d91c-402b-a31d-0be528339dcb",
+                        "name": "authorization_agent",
+                        "response": {
+                          "result": "The authorization AUTH-9001 is **approved**.\n\nHere are the details:\n*   **Authorization ID**: AUTH-9001\n*   **Member ID**: MBR-1001\n*   **Provider ID**: PRV-501\n*   **Approved procedure code**: 72141\n*   **Diagnosis code**: M54.50\n*   **Approved-from date**: 2026-07-01\n*   **Approved-through date**: 2026-07-31\n*   **Approved units**: 1\n*   **Authorization status**: APPROVED"
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "adk-8dd17a3c-befa-4d6f-9c67-1eac77e3dbbe",
+                        "name": "policy_agent",
+                        "response": {
+                          "result": "Policy ID: claim-denial-policy-md-2-procedure-code-and-authorization-matching\nPolicy version: Not available\nSource document: claim_denial_policy.md\n\n**Relevant policy rule:** A claim requiring prior authorization must contain a procedure code that matches the procedure code approved on the authorization. If the billed procedure code does not match the authorized procedure code, the claim may be denied with denial code AUTH_CODE_MISMATCH.\n\n**Resolution guidance:** Before correcting or resubmitting the claim, verify the following:\n1. The billed procedure code.\n2. The authorized procedure code.\n3. The member identifier.\n4. The provider identifier.\n5. The diagnosis code.\n6. The date of service.\n7. The authorization effective date range.\n\n**Approval requirement:** The billed procedure code must match the procedure code approved on the authorization."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1788459656.667556
+        },
+        {
+          "invocation_id": "e-29cbefe8-a910-432a-99d0-12974b68c1c1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Investigate claim CLM-20045, explain the denial, and recommend the next step. Do not create an approval request or execute any action."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here is the investigation summary for Claim CLM-20045:\n\n### Claim Evidence\n*   **Claim ID:** CLM-20045\n*   **Member ID:** MBR-1001\n*   **Provider ID:** PRV-501\n*   **Service Date:** 2026-07-15\n*   **Procedure Code:** 72148\n*   **Diagnosis Code:** M54.50\n*   **Billed Amount:** $1400.00\n*   **Allowed Amount:** $0.00\n*   **Claim Status:** DENIED\n*   **Denial Code:** AUTH_CODE_MISMATCH\n*   **Denial Reason:** The claim was denied because the procedure code that was billed does not match the procedure code that was approved on the authorization.\n*   **Authorization ID:** AUTH-9001\n\n### Eligibility Evidence\n*   **Member ID:** MBR-1001\n*   **Service Date:** 2026-07-15\n*   **Eligibility Status:** ACTIVE\n*   **Covered on Service Date:** Yes, the member was covered on 2026-07-15.\n\n### Authorization Evidence\n*   **Authorization ID:** AUTH-9001\n*   **Member ID:** MBR-1001\n*   **Provider ID:** PRV-501\n*   **Approved Procedure Code:** 72141\n*   **Diagnosis Code:** M54.50\n*   **Approved-from Date:** 2026-07-01\n*   **Approved-through Date:** 2026-07-31\n*   **Approved Units:** 1\n*   **Authorization Status:** APPROVED\n\n### Policy Evidence\n*   **Policy ID:** claim-denial-policy-md-2-procedure-code-and-authorization-matching\n*   **Source Document:** claim_denial_policy.md\n*   **Relevant Policy Rule:** A claim requiring prior authorization must contain a procedure code that matches the procedure code approved on the authorization. If the billed procedure code does not match the authorized procedure code, the claim may be denied with denial code AUTH_CODE_MISMATCH.\n*   **Resolution Guidance:** Before correcting or resubmitting the claim, verify the billed procedure code, the authorized procedure code, member identifier, provider identifier, diagnosis code, date of service, and the authorization effective date range.\n\n### Root Cause\nThe claim was denied because the billed procedure code (72148) does not match the approved procedure code (72141) on the prior authorization (AUTH-9001). The member was eligible, and the service date was within the authorization's validity period.\n\n### Recommended Next Step\nVerify the accuracy of the billed procedure code (72148) against the procedure actually performed and the approved procedure code (72141) on authorization AUTH-9001. If the billed code is incorrect, it may need to be corrected and the claim resubmitted. If the performed procedure genuinely requires a different code than authorized, further investigation into the authorization process or a request for a code mismatch review may be necessary.\n\n### Approval Requirement\nAny action to correct the claim's procedure code to match the authorization or to request a review of the code mismatch would likely require an approval. The policy explicitly states that the billed procedure code must match the procedure code approved on the authorization.",
+                "thought_signature": "CuECAY89a1-FpHfa4xkwA8RdNbOqaJ8J3enN-8t4Z5ZczxPCsRW3lTpsSM_Tok0vffalXm4HyZedBVINzZyKfkHkHbHNZSNaUfl8Tg2Rq8P3IeY80UEaozL7yst7vywqpbaNLE5ZqvhRZq7khXFobwsZQyRLRbKgyDme0eFLdPGMVIlM0QVRVq6K9nnQnRig-50gwbVv-L6m0AjReo09zOE1Nk9VKEyUqsWBBm5xgcc7t3ZXrWkWgBdft-6W4mLICmzbsEYp8SvjvzpbGtNycF9lj2P1NZIju4kP7Ve3VKy-9SDNJaZohzwIN-ghWGwsfyJOeMsS2MSB1g5piOJrIGU9OAfp7PtbzSaxcHwWHwyFLGrU5h1O-yfSZwfCo8kTAoNnHr34m0v5RLpEMfHb1td5xhEs78ibJdfgs0U-BzhbzrwM7cTRAWqgqloUnEBePiMp9GacaspQJAaNbIC2ff7SCSY="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1788459750.187
+        }
+      ],
+      "session_input": {
+        "app_name": "mem_resolve_app",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1788459984.6641889
+    }
+  ],
+  "creation_timestamp": 1788459333.532474
+}

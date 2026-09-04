@@ -1,0 +1,25 @@
+[project]
+name = "memresolveai"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "fastapi>=0.141.1",
+    "google-adk[gcp]>=2.0.0,<3.0.0",
+    "google-cloud-firestore>=2.21,<3.0",
+    "mcp[cli]>=2.0,<3.0",
+    "pydantic>=2.11,<3.0",
+    "pydantic-settings>=2.10,<3.0",
+    "python-dotenv>=1.2.3",
+    "sqlalchemy[asyncio]>=2.0.52",
+    "uvicorn[standard]>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+local-rag = [
+    "chromadb>=1.0,<2.0",
+]
